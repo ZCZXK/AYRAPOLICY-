@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0f1015;
+      --bg-color: #0d0e12;
       --card-bg: rgba(22, 25, 35, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
       --accent: #5865f2;
@@ -17,7 +17,7 @@
       --text-main: #f2f3f5;
       --text-muted: #949ba4;
       --heading-color: #ffffff;
-      --nav-bg: rgba(30, 33, 45, 0.6);
+      --nav-bg: rgba(22, 25, 35, 0.85);
       --nav-hover: rgba(255, 255, 255, 0.08);
       --badge-bg: rgba(88, 101, 242, 0.15);
       --badge-text: #818cf8;
@@ -33,7 +33,7 @@
       --text-main: #2e3338;
       --text-muted: #5c6470;
       --heading-color: #060607;
-      --nav-bg: rgba(235, 238, 242, 0.8);
+      --nav-bg: rgba(255, 255, 255, 0.85);
       --nav-hover: rgba(0, 0, 0, 0.05);
       --badge-bg: rgba(88, 101, 242, 0.1);
       --badge-text: #4f5660;
@@ -53,7 +53,35 @@
       flex-direction: column;
     }
 
-    /* Ambient Glow Background */
+    /* Fixed Floating Corner Theme Toggle */
+    .corner-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 999;
+      background: var(--nav-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .corner-toggle:hover {
+      transform: translateY(-2px);
+      background: var(--nav-hover);
+    }
+
     .ambient-bg {
       position: fixed;
       top: 0;
@@ -70,7 +98,7 @@
     /* Banner Area */
     .banner-container {
       width: 100%;
-      height: 220px;
+      height: 200px;
       position: relative;
       background: linear-gradient(135deg, #4752c4 0%, #5865f2 50%, #7983f5 100%);
       overflow: hidden;
@@ -80,15 +108,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
     /* Header Profile & Nav Section */
     .header-wrapper {
       max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
       position: relative;
+      width: 100%;
     }
 
     .profile-section {
@@ -98,25 +127,21 @@
     }
 
     .bot-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 28px;
-      border: 6px solid var(--bg-color);
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      border: 5px solid var(--bg-color);
       background-color: #1e1f22;
       object-fit: cover;
       box-shadow: var(--shadow);
-      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .bot-icon:hover {
-      transform: scale(1.04);
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
 
     .bot-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--heading-color);
-      margin-top: 12px;
+      margin-top: 10px;
       letter-spacing: -0.02em;
       display: flex;
       align-items: center;
@@ -125,45 +150,44 @@
     }
 
     .bot-badge {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      padding: 4px 10px;
+      padding: 3px 8px;
       background: var(--badge-bg);
       color: var(--accent);
       border-radius: 20px;
     }
 
-    /* Navigation Bar */
+    /* Sleek Horizontal Navigation Bar */
     nav {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       background: var(--nav-bg);
       padding: 6px;
-      border-radius: 16px;
+      border-radius: 50px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       margin-top: 16px;
+      max-width: 100%;
     }
 
-    nav a, nav button {
+    nav a {
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       padding: 8px 18px;
-      border-radius: 10px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
+      border-radius: 30px;
       transition: all 0.2s ease;
-      font-family: inherit;
+      white-space: nowrap;
     }
 
-    nav a:hover, nav button:hover {
+    nav a:hover {
       color: var(--heading-color);
       background: var(--nav-hover);
     }
@@ -175,7 +199,6 @@
     }
 
     .btn-support {
-      background: rgba(88, 101, 242, 0.15) !important;
       color: var(--accent) !important;
     }
 
@@ -184,11 +207,11 @@
       color: #ffffff !important;
     }
 
-    /* Main Card Container */
+    /* Main Container */
     .container {
       max-width: 860px;
-      margin: 30px auto 60px;
-      padding: 40px;
+      margin: 10px auto 60px;
+      padding: 36px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 24px;
@@ -196,45 +219,40 @@
       -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow);
       flex: 1;
+      width: calc(100% - 40px);
     }
 
     .page-header {
       border-bottom: 1px solid var(--card-border);
-      padding-bottom: 20px;
-      margin-bottom: 30px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .page-title {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: var(--heading-color);
-      letter-spacing: -0.01em;
     }
 
     .last-updated {
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 4px;
     }
 
-    section {
-      margin-bottom: 32px;
-    }
+    section { margin-bottom: 28px; }
 
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--heading-color);
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      margin-bottom: 10px;
     }
 
     p {
       color: var(--text-main);
       margin-bottom: 12px;
-      font-size: 0.975rem;
+      font-size: 0.95rem;
     }
 
     ul {
@@ -245,20 +263,18 @@
 
     ul li {
       position: relative;
-      padding-left: 24px;
-      margin-bottom: 10px;
+      padding-left: 20px;
+      margin-bottom: 8px;
       color: var(--text-main);
-      font-size: 0.975rem;
+      font-size: 0.95rem;
     }
 
     ul li::before {
       content: "•";
       position: absolute;
-      left: 8px;
+      left: 6px;
       color: var(--accent);
       font-weight: bold;
-      font-size: 1.2rem;
-      line-height: 1;
     }
 
     a {
@@ -267,52 +283,47 @@
       font-weight: 600;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
-    /* Footer */
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 24px 20px;
       color: var(--text-muted);
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       border-top: 1px solid var(--card-border);
       margin-top: auto;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 24px; margin: 20px 16px; }
-      nav { flex-direction: column; width: 100%; }
-      nav a, nav button { width: 100%; text-align: center; }
+    @media (max-width: 600px) {
+      .container { padding: 24px; margin: 10px auto 40px; }
+      nav a { padding: 8px 12px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Right Theme Toggle -->
+  <button class="corner-toggle" id="themeBtn" onclick="toggleTheme()">☀️ Light</button>
+
   <div class="ambient-bg"></div>
 
-  <!-- Banner -->
   <div class="banner-container">
     <img src="banner.png" alt="Ayra Banner" class="banner-img" onerror="this.style.display='none'">
   </div>
   
-  <!-- Profile Header -->
   <div class="header-wrapper">
     <div class="profile-section">
       <img src="icon.png" alt="Ayra Bot Icon" class="bot-icon" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
       <h1 class="bot-title">Ayra <span class="bot-badge">BOT</span></h1>
       
       <nav>
-        <a href="index.html" class="active">Terms of Service</a>
+        <a href="index.html" class="active">Terms</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener" class="btn-support">Support Server</a>
-        <button id="themeBtn" onclick="toggleTheme()" aria-label="Toggle Theme">☀️ Light</button>
       </nav>
     </div>
   </div>
 
-  <!-- Main Document Container -->
   <main class="container">
     <div class="page-header">
       <h1 class="page-title">Terms of Service</h1>
@@ -321,33 +332,27 @@
 
     <section>
       <h2>1. Agreement to Terms</h2>
-      <p>By inviting, accessing, or using <strong>Ayra</strong> ("the Bot"), you confirm that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree to these terms, you must immediately remove the Bot from your Discord server and cease all interactions with it.</p>
+      <p>By inviting or using <strong>Ayra</strong> ("the Bot"), you agree to be bound by these Terms of Service. If you do not agree, please remove the Bot from your server.</p>
     </section>
 
     <section>
       <h2>2. Permitted Use & Conduct</h2>
-      <p>You agree to use Ayra strictly in accordance with Discord's Terms of Service and Community Guidelines. When interacting with the Bot, you strictly agree NOT to:</p>
+      <p>You agree to use Ayra strictly in accordance with Discord's Terms of Service. You agree NOT to:</p>
       <ul>
-        <li>Exploit, reverse-engineer, or attempt to circumvent any commands, rate-limits, or security controls.</li>
-        <li>Use the Bot to transmit spam, malicious links, or harmful automated actions across servers.</li>
-        <li>Abuse bot APIs or infrastructure to cause denial-of-service (DoS) or performance degradation.</li>
-        <li>Utilize the Bot for illegal activities or content distribution prohibited under applicable law.</li>
+        <li>Exploit bugs, spam commands, or overload bot infrastructure.</li>
+        <li>Transmit harmful or illegal content via the Bot.</li>
+        <li>Attempt reverse engineering or unauthorized API access.</li>
       </ul>
     </section>
 
     <section>
-      <h2>3. Availability & Service Modifications</h2>
-      <p>Ayra is provided on an "AS IS" and "AS AVAILABLE" basis. We reserve the right to modify, suspend, update, or discontinue any aspect of the Bot's services at any time, with or without notice. We also reserve the right to revoke access or block specific users or servers from using Ayra for violations of these terms.</p>
+      <h2>3. Availability & Modifications</h2>
+      <p>Ayra is provided "AS IS". We reserve the right to modify or terminate services or restrict access to specific servers at any time.</p>
     </section>
 
     <section>
       <h2>4. Limitation of Liability</h2>
-      <p>In no event shall the developers, owners, or operators of Ayra be held liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the Bot, including data loss or server configuration disruptions.</p>
-    </section>
-
-    <section>
-      <h2>5. Contact & Support</h2>
-      <p>If you have any questions or require support regarding these Terms, please reach out via our official <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener">Discord Support Server</a>.</p>
+      <p>The developers are not liable for any server disruptions, lost data, or damages resulting from the use of Ayra.</p>
     </section>
   </main>
 
@@ -357,10 +362,7 @@
 
   <script>
     const themeBtn = document.getElementById('themeBtn');
-    
-    // Check saved local storage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    if (localStorage.getItem('theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       themeBtn.textContent = '🌙 Dark';
     }

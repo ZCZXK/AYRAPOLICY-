@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #0f1015;
+      --bg-color: #0d0e12;
       --card-bg: rgba(22, 25, 35, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
       --accent: #5865f2;
@@ -17,7 +17,7 @@
       --text-main: #f2f3f5;
       --text-muted: #949ba4;
       --heading-color: #ffffff;
-      --nav-bg: rgba(30, 33, 45, 0.6);
+      --nav-bg: rgba(22, 25, 35, 0.85);
       --nav-hover: rgba(255, 255, 255, 0.08);
       --badge-bg: rgba(88, 101, 242, 0.15);
       --badge-text: #818cf8;
@@ -33,7 +33,7 @@
       --text-main: #2e3338;
       --text-muted: #5c6470;
       --heading-color: #060607;
-      --nav-bg: rgba(235, 238, 242, 0.8);
+      --nav-bg: rgba(255, 255, 255, 0.85);
       --nav-hover: rgba(0, 0, 0, 0.05);
       --badge-bg: rgba(88, 101, 242, 0.1);
       --badge-text: #4f5660;
@@ -53,6 +53,35 @@
       flex-direction: column;
     }
 
+    /* Fixed Floating Corner Theme Toggle */
+    .corner-toggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 999;
+      background: var(--nav-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 10px 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .corner-toggle:hover {
+      transform: translateY(-2px);
+      background: var(--nav-hover);
+    }
+
     .ambient-bg {
       position: fixed;
       top: 0;
@@ -66,9 +95,10 @@
       pointer-events: none;
     }
 
+    /* Banner Area */
     .banner-container {
       width: 100%;
-      height: 220px;
+      height: 200px;
       position: relative;
       background: linear-gradient(135deg, #4752c4 0%, #5865f2 50%, #7983f5 100%);
       overflow: hidden;
@@ -78,14 +108,16 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.85;
+      opacity: 0.9;
     }
 
+    /* Header Profile & Nav Section */
     .header-wrapper {
       max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
       position: relative;
+      width: 100%;
     }
 
     .profile-section {
@@ -95,25 +127,21 @@
     }
 
     .bot-icon {
-      width: 120px;
-      height: 120px;
-      border-radius: 28px;
-      border: 6px solid var(--bg-color);
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      border: 5px solid var(--bg-color);
       background-color: #1e1f22;
       object-fit: cover;
       box-shadow: var(--shadow);
-      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .bot-icon:hover {
-      transform: scale(1.04);
+      transition: border-color 0.3s ease, transform 0.3s ease;
     }
 
     .bot-title {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 800;
       color: var(--heading-color);
-      margin-top: 12px;
+      margin-top: 10px;
       letter-spacing: -0.02em;
       display: flex;
       align-items: center;
@@ -122,44 +150,44 @@
     }
 
     .bot-badge {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      padding: 4px 10px;
+      padding: 3px 8px;
       background: var(--badge-bg);
       color: var(--accent);
       border-radius: 20px;
     }
 
+    /* Sleek Horizontal Navigation Bar */
     nav {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       background: var(--nav-bg);
       padding: 6px;
-      border-radius: 16px;
+      border-radius: 50px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--card-border);
       margin-top: 16px;
+      max-width: 100%;
     }
 
-    nav a, nav button {
+    nav a {
       color: var(--text-muted);
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       padding: 8px 18px;
-      border-radius: 10px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
+      border-radius: 30px;
       transition: all 0.2s ease;
-      font-family: inherit;
+      white-space: nowrap;
     }
 
-    nav a:hover, nav button:hover {
+    nav a:hover {
       color: var(--heading-color);
       background: var(--nav-hover);
     }
@@ -171,7 +199,6 @@
     }
 
     .btn-support {
-      background: rgba(88, 101, 242, 0.15) !important;
       color: var(--accent) !important;
     }
 
@@ -180,10 +207,11 @@
       color: #ffffff !important;
     }
 
+    /* Main Container */
     .container {
       max-width: 860px;
-      margin: 30px auto 60px;
-      padding: 40px;
+      margin: 10px auto 60px;
+      padding: 36px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 24px;
@@ -191,42 +219,40 @@
       -webkit-backdrop-filter: blur(16px);
       box-shadow: var(--shadow);
       flex: 1;
+      width: calc(100% - 40px);
     }
 
     .page-header {
       border-bottom: 1px solid var(--card-border);
-      padding-bottom: 20px;
-      margin-bottom: 30px;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
     }
 
     .page-title {
-      font-size: 1.75rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: var(--heading-color);
-      letter-spacing: -0.01em;
     }
 
     .last-updated {
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 4px;
     }
 
-    section {
-      margin-bottom: 32px;
-    }
+    section { margin-bottom: 28px; }
 
     h2 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--heading-color);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     p {
       color: var(--text-main);
       margin-bottom: 12px;
-      font-size: 0.975rem;
+      font-size: 0.95rem;
     }
 
     ul {
@@ -237,20 +263,18 @@
 
     ul li {
       position: relative;
-      padding-left: 24px;
-      margin-bottom: 10px;
+      padding-left: 20px;
+      margin-bottom: 8px;
       color: var(--text-main);
-      font-size: 0.975rem;
+      font-size: 0.95rem;
     }
 
     ul li::before {
       content: "•";
       position: absolute;
-      left: 8px;
+      left: 6px;
       color: var(--accent);
       font-weight: bold;
-      font-size: 1.2rem;
-      line-height: 1;
     }
 
     a {
@@ -259,51 +283,47 @@
       font-weight: 600;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     footer {
       text-align: center;
-      padding: 30px 20px;
+      padding: 24px 20px;
       color: var(--text-muted);
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       border-top: 1px solid var(--card-border);
       margin-top: auto;
     }
 
-    @media (max-width: 640px) {
-      .container { padding: 24px; margin: 20px 16px; }
-      nav { flex-direction: column; width: 100%; }
-      nav a, nav button { width: 100%; text-align: center; }
+    @media (max-width: 600px) {
+      .container { padding: 24px; margin: 10px auto 40px; }
+      nav a { padding: 8px 12px; font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Top Right Theme Toggle -->
+  <button class="corner-toggle" id="themeBtn" onclick="toggleTheme()">☀️ Light</button>
+
   <div class="ambient-bg"></div>
 
-  <!-- Banner -->
   <div class="banner-container">
     <img src="banner.png" alt="Ayra Banner" class="banner-img" onerror="this.style.display='none'">
   </div>
   
-  <!-- Profile Header -->
   <div class="header-wrapper">
     <div class="profile-section">
       <img src="icon.png" alt="Ayra Bot Icon" class="bot-icon" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
       <h1 class="bot-title">Ayra <span class="bot-badge">BOT</span></h1>
       
       <nav>
-        <a href="index.html">Terms of Service</a>
+        <a href="index.html">Terms</a>
         <a href="privacy.html" class="active">Privacy Policy</a>
         <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener" class="btn-support">Support Server</a>
-        <button id="themeBtn" onclick="toggleTheme()" aria-label="Toggle Theme">☀️ Light</button>
       </nav>
     </div>
   </div>
 
-  <!-- Main Document Container -->
   <main class="container">
     <div class="page-header">
       <h1 class="page-title">Privacy Policy</h1>
@@ -312,39 +332,21 @@
 
     <section>
       <h2>1. Information We Collect</h2>
-      <p>To provide core moderation, utility, and interactive features, <strong>Ayra</strong> collects minimal essential data from Discord, including:</p>
+      <p>Ayra collects minimal data necessary for functionality, including:</p>
       <ul>
-        <li><strong>Identifiers:</strong> Discord User IDs, Server (Guild) IDs, and Channel IDs.</li>
-        <li><strong>Server Configurations:</strong> Custom server settings, prefix configurations, roles, and feature toggles selected by administrators.</li>
-        <li><strong>Command Telemetry:</strong> Anonymized command execution logs used exclusively for error diagnostics and bot stability.</li>
+        <li>User IDs, Server (Guild) IDs, and Channel IDs.</li>
+        <li>Server configuration settings and command diagnostic logs.</li>
       </ul>
-      <p><em>Note: Ayra does not process or store private message contents or voice data.</em></p>
     </section>
 
     <section>
-      <h2>2. How We Use Collected Data</h2>
-      <p>All data collected is strictly utilized to operate and improve Ayra's service. Specifically:</p>
-      <ul>
-        <li>To persist server configurations and user settings across bot restarts.</li>
-        <li>To enforce rate limits and prevent automated spam or abuse.</li>
-        <li>To identify and patch operational bugs or system downtime.</li>
-      </ul>
-      <p>We do NOT sell, lease, trade, or share any user or server data with third-party advertisers or commercial entities.</p>
+      <h2>2. How We Use Data</h2>
+      <p>Data is strictly used to deliver bot features and maintain stability. We do not sell or trade user data to third parties.</p>
     </section>
 
     <section>
-      <h2>3. Data Retention & Security</h2>
-      <p>Your server data is retained only as long as Ayra remains in your Discord server or as needed to maintain active settings. All stored data is secured using industry-standard database encryption and access controls.</p>
-    </section>
-
-    <section>
-      <h2>4. Data Deletion & User Rights</h2>
-      <p>Server administrators or users can request the permanent removal of stored data associated with their User ID or Server ID. To submit a data deletion request, join our <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener">Support Server</a> and create a support ticket.</p>
-    </section>
-
-    <section>
-      <h2>5. Updates to This Policy</h2>
-      <p>We may periodically update this Privacy Policy to reflect changes in our operational features or legal compliance. Continued use of Ayra after updates implies acceptance of the revised policy.</p>
+      <h2>3. Data Deletion</h2>
+      <p>To request deletion of your stored data, join our <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener">Support Server</a> and submit a request.</p>
     </section>
   </main>
 
@@ -354,9 +356,7 @@
 
   <script>
     const themeBtn = document.getElementById('themeBtn');
-    
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
+    if (localStorage.getItem('theme') === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
       themeBtn.textContent = '🌙 Dark';
     }
