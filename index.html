@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms of Service — Ayra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0f1015;
+      --card-bg: rgba(22, 25, 35, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.35);
+      --text-main: #f2f3f5;
+      --text-muted: #949ba4;
+      --heading-color: #ffffff;
+      --nav-bg: rgba(30, 33, 45, 0.6);
+      --nav-hover: rgba(255, 255, 255, 0.08);
+      --badge-bg: rgba(88, 101, 242, 0.15);
+      --badge-text: #818cf8;
+      --shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #f6f8fa;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(0, 0, 0, 0.08);
+      --accent: #5865f2;
+      --accent-glow: rgba(88, 101, 242, 0.2);
+      --text-main: #2e3338;
+      --text-muted: #5c6470;
+      --heading-color: #060607;
+      --nav-bg: rgba(235, 238, 242, 0.8);
+      --nav-hover: rgba(0, 0, 0, 0.05);
+      --badge-bg: rgba(88, 101, 242, 0.1);
+      --badge-text: #4f5660;
+      --shadow: 0 20px 40px -15px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Ambient Glow Background */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
+      max-width: 1200px;
+      height: 400px;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* Banner Area */
+    .banner-container {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      background: linear-gradient(135deg, #4752c4 0%, #5865f2 50%, #7983f5 100%);
+      overflow: hidden;
+    }
+
+    .banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    /* Header Profile & Nav Section */
+    .header-wrapper {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+    }
+
+    .profile-section {
+      text-align: center;
+      margin-top: -60px;
+      margin-bottom: 24px;
+    }
+
+    .bot-icon {
+      width: 120px;
+      height: 120px;
+      border-radius: 28px;
+      border: 6px solid var(--bg-color);
+      background-color: #1e1f22;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .bot-icon:hover {
+      transform: scale(1.04);
+    }
+
+    .bot-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--heading-color);
+      margin-top: 12px;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .bot-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      background: var(--badge-bg);
+      color: var(--accent);
+      border-radius: 20px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--nav-bg);
+      padding: 6px;
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      margin-top: 16px;
+    }
+
+    nav a, nav button {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 18px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    nav a:hover, nav button:hover {
+      color: var(--heading-color);
+      background: var(--nav-hover);
+    }
+
+    nav a.active {
+      color: #ffffff;
+      background: var(--accent);
+      box-shadow: 0 4px 12px var(--accent-glow);
+    }
+
+    .btn-support {
+      background: rgba(88, 101, 242, 0.15) !important;
+      color: var(--accent) !important;
+    }
+
+    .btn-support:hover {
+      background: var(--accent) !important;
+      color: #ffffff !important;
+    }
+
+    /* Main Card Container */
+    .container {
+      max-width: 860px;
+      margin: 30px auto 60px;
+      padding: 40px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+      flex: 1;
+    }
+
+    .page-header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--heading-color);
+      letter-spacing: -0.01em;
+    }
+
+    .last-updated {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--heading-color);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    p {
+      color: var(--text-main);
+      margin-bottom: 12px;
+      font-size: 0.975rem;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 16px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      color: var(--text-main);
+      font-size: 0.975rem;
+    }
+
+    ul li::before {
+      content: "•";
+      position: absolute;
+      left: 8px;
+      color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--card-border);
+      margin-top: auto;
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 24px; margin: 20px 16px; }
+      nav { flex-direction: column; width: 100%; }
+      nav a, nav button { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg"></div>
+
+  <!-- Banner -->
+  <div class="banner-container">
+    <img src="banner.png" alt="Ayra Banner" class="banner-img" onerror="this.style.display='none'">
+  </div>
+  
+  <!-- Profile Header -->
+  <div class="header-wrapper">
+    <div class="profile-section">
+      <img src="icon.png" alt="Ayra Bot Icon" class="bot-icon" onerror="this.src='https://cdn.discordapp.com/embed/avatars/0.png'">
+      <h1 class="bot-title">Ayra <span class="bot-badge">BOT</span></h1>
+      
+      <nav>
+        <a href="index.html" class="active">Terms of Service</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener" class="btn-support">Support Server</a>
+        <button id="themeBtn" onclick="toggleTheme()" aria-label="Toggle Theme">☀️ Light</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Document Container -->
+  <main class="container">
+    <div class="page-header">
+      <h1 class="page-title">Terms of Service</h1>
+      <p class="last-updated">Effective Date: September 4, 2026</p>
+    </div>
+
+    <section>
+      <h2>1. Agreement to Terms</h2>
+      <p>By inviting, accessing, or using <strong>Ayra</strong> ("the Bot"), you confirm that you have read, understood, and agreed to be bound by these Terms of Service. If you do not agree to these terms, you must immediately remove the Bot from your Discord server and cease all interactions with it.</p>
+    </section>
+
+    <section>
+      <h2>2. Permitted Use & Conduct</h2>
+      <p>You agree to use Ayra strictly in accordance with Discord's Terms of Service and Community Guidelines. When interacting with the Bot, you strictly agree NOT to:</p>
+      <ul>
+        <li>Exploit, reverse-engineer, or attempt to circumvent any commands, rate-limits, or security controls.</li>
+        <li>Use the Bot to transmit spam, malicious links, or harmful automated actions across servers.</li>
+        <li>Abuse bot APIs or infrastructure to cause denial-of-service (DoS) or performance degradation.</li>
+        <li>Utilize the Bot for illegal activities or content distribution prohibited under applicable law.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Availability & Service Modifications</h2>
+      <p>Ayra is provided on an "AS IS" and "AS AVAILABLE" basis. We reserve the right to modify, suspend, update, or discontinue any aspect of the Bot's services at any time, with or without notice. We also reserve the right to revoke access or block specific users or servers from using Ayra for violations of these terms.</p>
+    </section>
+
+    <section>
+      <h2>4. Limitation of Liability</h2>
+      <p>In no event shall the developers, owners, or operators of Ayra be held liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use the Bot, including data loss or server configuration disruptions.</p>
+    </section>
+
+    <section>
+      <h2>5. Contact & Support</h2>
+      <p>If you have any questions or require support regarding these Terms, please reach out via our official <a href="https://discord.gg/3dAVgmhd2f" target="_blank" rel="noopener">Discord Support Server</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2026 Ayra Bot. All rights reserved. Not affiliated with Discord Inc.
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById('themeBtn');
+    
+    // Check saved local storage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      themeBtn.textContent = '🌙 Dark';
+    }
+
+    function toggleTheme() {
+      if (document.documentElement.getAttribute('data-theme') === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+        themeBtn.textContent = '☀️ Light';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        themeBtn.textContent = '🌙 Dark';
+      }
+    }
+  </script>
+
+</body>
+</html>
